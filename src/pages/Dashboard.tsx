@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { TrendingUp, TrendingDown, ShoppingCart, DollarSign, Package, CreditCard } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'
 
@@ -48,16 +49,28 @@ const kpis = [
 ]
 
 export default function Dashboard() {
+  const [periodo, setPeriodo] = useState('Este mês')
+
   return (
     <div className="space-y-5">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h2 className="text-xl font-semibold text-gray-800">Bom dia, Gabriel! 👋</h2>
           <p className="text-sm text-gray-400 mt-0.5">Hoje · 10 de outubro de 2026</p>
         </div>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg font-medium">
-          Nova venda
-        </button>
+        <div className="flex items-center gap-2">
+          <div className="flex bg-white border border-gray-200 rounded-lg overflow-hidden">
+            {['Hoje', 'Esta semana', 'Este mês'].map(p => (
+              <button key={p} onClick={() => setPeriodo(p)}
+                className={`text-xs px-3 py-2 font-medium transition-colors ${periodo === p ? 'bg-orange-500 text-white' : 'text-gray-500 hover:bg-gray-50'}`}>
+                {p}
+              </button>
+            ))}
+          </div>
+          <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm px-4 py-2 rounded-lg font-medium transition-colors">
+            Nova venda
+          </button>
+        </div>
       </div>
 
       {/* KPIs */}

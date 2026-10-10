@@ -97,6 +97,15 @@ export default function App() {
             ))}
           </nav>
 
+          {/* Central de ajuda */}
+          {!collapsed && (
+            <div className="mx-3 mb-2 bg-white/5 rounded-lg px-3 py-2.5">
+              <p className="text-white text-xs font-medium">Seu negócio, em boas mãos.</p>
+              <p className="text-gray-400 text-[10px] mt-0.5">Precisa de ajuda?</p>
+              <a href="mailto:suporte@alfaflow.com.br" className="text-orange-400 text-[10px] hover:underline">Central de ajuda</a>
+            </div>
+          )}
+
           {/* Footer */}
           <div className="border-t border-white/10 p-3">
             {!collapsed && (
@@ -112,6 +121,7 @@ export default function App() {
               className="w-full flex items-center justify-center gap-2 text-gray-400 hover:text-white text-xs py-1.5 rounded hover:bg-white/5 transition-colors">
               {collapsed ? <ChevronRight size={14} /> : <><ChevronLeft size={14} /><span>Recolher menu</span></>}
             </button>
+            {!collapsed && <p className="text-gray-600 text-[10px] text-center mt-2">v1.0</p>}
           </div>
         </aside>
 
@@ -124,7 +134,13 @@ export default function App() {
             />
             <div className="flex items-center gap-3">
               <span className="text-xs text-gray-400">10 de outubro de 2026</span>
-              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold">GT</div>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">GT</div>
+                <div className="hidden md:block text-right">
+                  <p className="text-xs font-medium text-gray-700">Gabriel Taveira</p>
+                  <p className="text-[10px] text-gray-400">Administrador</p>
+                </div>
+              </div>
             </div>
           </header>
           <main className="flex-1 overflow-y-auto p-6">
