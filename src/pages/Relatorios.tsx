@@ -22,7 +22,7 @@ export default function Relatorios() {
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="dia" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 12 }} />
-              <Tooltip formatter={(v: number) => [`R$ ${v}`, 'Vendas']} />
+              <Tooltip formatter={(v) => [`R$ ${v}`, 'Vendas']} />
               <Line type="monotone" dataKey="valor" stroke="#1a56db" strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>

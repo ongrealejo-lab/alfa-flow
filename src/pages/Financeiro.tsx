@@ -40,7 +40,7 @@ export default function Financeiro() {
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="mes" tick={{ fontSize: 12 }} />
             <YAxis tick={{ fontSize: 12 }} />
-            <Tooltip formatter={(v: number) => `R$ ${v.toLocaleString('pt-BR')}`} />
+            <Tooltip formatter={(v) => `R$ ${Number(v).toLocaleString('pt-BR')}`} />
             <Bar dataKey="receita" name="Receita" fill="#22c55e" radius={[4,4,0,0]} />
             <Bar dataKey="despesa" name="Despesa" fill="#ef4444" radius={[4,4,0,0]} />
           </BarChart>
